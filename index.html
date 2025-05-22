@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBattle - Programmeringskonkurrencer</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Tilføj Firebase og Monaco Editor -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.30.1/min/vs/loader.min.js"></script>
+</head>
+<body>
+    <div id="app-container">
+        <!-- Login screen (shown by default) -->
+        <div id="login-screen" class="login-container">
+            <div class="login-form">
+                <h1 class="login-title">CodeBattle</h1>
+                <input type="email" id="email" placeholder="Email" class="form-input">
+                <input type="password" id="password" placeholder="Password" class="form-input">
+                <button class="btn" onclick="login()">Login</button>
+                <button class="btn" onclick="signup()">Opret bruger</button>
+                <div class="status-bar">
+                    <span>⚡ Powered by CodeBattle</span>
+                    <span><span class="loading">⚙️</span> Initializing</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main app content (hidden until login) -->
+        <div id="app-content" style="display:none;">
+            <header>
+                <h1>CodeBattle <span style="color:#b5cea8;font-size:0.8em;">// Competitive Programming Platform</span></h1>
+                <nav>
+                    <a href="#">Home</a>
+                    <a href="#">Challenges</a>
+                    <a href="#">Leaderboard</a>
+                    <a href="#">Docs</a>
+                </nav>
+            </header>
+
+            <div class="container">
+                <div class="battle-card">
+                    <h2>Aktiv kamp</h2>
+                    <p>Python: Skriv den hurtigste algoritme til at sortere en liste</p>
+                    <p>Tid tilbage: 45 minutter</p>
+                    <button class="btn">Deltag nu</button>
+                </div>
+
+                <div class="battle-card">
+                    <h2>Opret ny kamp</h2>
+                    <button class="btn">Start en udfordring</button>
+                </div>
+
+                <!-- Code editor container -->
+                <div id="editor-container" class="battle-card" style="display: none; height: 400px;">
+                    <h2>Din løsning</h2>
+                    <div id="editor" style="height: 300px;"></div>
+                    <button class="btn" onclick="submitSolution()">Indsend løsning</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Ændre script tags til at bruge modules -->
+    <script type="module" src="app.js"></script>
+    <script nomodule src="auth.js"></script>
+</body>
+</html>

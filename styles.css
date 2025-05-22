@@ -1,0 +1,197 @@
+/* Main styles */
+body {
+  font-family: 'Consolas', 'Courier New', monospace;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* Header styles */
+header {
+  background-color: #252526;
+  color: #569cd6;
+  padding: 1rem;
+  border-bottom: 1px solid #333;
+}
+
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Card styles */
+.battle-card {
+  background: #252526;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #333;
+}
+
+/* Button styles */
+.btn {
+  background-color: #0e639c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(86, 156, 214, 0.4), transparent);
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background-color: #1177bb;
+}
+
+.btn:hover::after {
+  left: 100%;
+}
+
+/* Form styles */
+.form-input {
+  display: block;
+  width: 100%;
+  padding: 8px 8px 8px 25px;
+  margin: 8px 0;
+  background: #333;
+  border: 1px solid #444;
+  color: #d4d4d4;
+  border-radius: 2px;
+  position: relative;
+  font-family: 'Consolas', monospace;
+}
+
+.form-input::before {
+  content: '>';
+  position: absolute;
+  left: 10px;
+  color: #b5cea8;
+}
+
+.form-input:focus::after {
+  content: '|';
+  animation: blink 1s infinite;
+  position: absolute;
+  right: 10px;
+  color: #569cd6;
+}
+
+/* Typography */
+h1, h2 {
+  color: #569cd6;
+}
+
+nav a {
+  color: #9cdcfe;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Login container */
+.login-container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: #1e1e1e;
+  overflow: hidden;
+  position: relative;
+}
+
+.login-form {
+  background: #252526;
+  padding: 2rem;
+  border-radius: 4px;
+  border: 1px solid #333;
+  width: 300px;
+  transform: scale(0.8) translateY(50px);
+  opacity: 0;
+  animation: formAppear 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.login-title {
+  position: relative;
+  width: max-content;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-title::before,
+.login-title::after {
+  content: '|';
+  position: absolute;
+  color: #b5cea8;
+}
+
+.login-title::before {
+  left: 0;
+  animation: typing 2s steps(12) forwards;
+}
+
+.login-title::after {
+  right: -10px;
+  animation: blink 1s infinite 2s;
+}
+
+/* Status bar */
+.status-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #007acc;
+  color: white;
+  padding: 3px 10px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Animations */
+@keyframes formAppear {
+  0% {
+    transform: scale(0.8) translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+  margin-right: 5px;
+}
