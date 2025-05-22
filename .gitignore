@@ -1,0 +1,16 @@
+# Ignorer node-moduler
+node_modules/
+
+# Ignorer miljøvariabler
+.env
+
+# Ignorer IDE-specifikke filer
+.vscode/
+.idea/
+
+# Ignorer Firebase cache
+.firebase/
+
+# Ignorer OS-specifikke filer
+.DS_Store
+Thumbs.db
